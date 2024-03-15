@@ -1,1 +1,1 @@
-# js_mini_projects
+# Mini projects with basic components on HTML, CSS and JS
