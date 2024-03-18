@@ -15,16 +15,14 @@
     </section>
     <section class="bg-content">
         <div class="intro">
-            <p>
-                This is not a real online service! You know you need something like 
-                this in your life to help your realize your deepest dreams.
-                Sign up now to get started.
-            </p>
+            <p>This is not a real online service! You know you need something like 
+                this in your life to help your realize your deepest dreams.</p>
+            <p>Sign up now to get started.</p>
             <p>You <em>know</em> you want to.</p>
         </div>
         <form action="POST">
             <section class="form-content">
-                <h1 class="form-title">Let's do this!</h1>
+                <h1>Let's do this!</h1>
                 <div class="form-block">
                     <span class="field">
                         <label for="first_name">First name</label>
@@ -48,17 +46,20 @@
                 <div class="form-block">
                     <span class="field">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="in_password">
+                        <input class="error" type="password" id="password" name="in_password">
+                        <p class="error-msg">* Passwords do not match</p>
                     </span>
                     <span class="field">
                         <label for="confirm_password">Confirm password</label>
-                        <input type="password" id="confirm_password" name="in_confirm_password">
+                        <input class="error" type="password" id="confirm_password" name="in_confirm_password">
                     </span>
                 </div>
             </section>
-            <button class="new-account" type='submit'>Create Account</button>
+            <section class="actions">
+                <button class="new-account" type='submit'>Create Account</button>
+                <div class="login">Already have an account? <a href="#">Log in</a></div>
+            </section>
         </form>
-        <div class="login">Already have an account? <a href="#">Log in</a></div>
     </section>
 </body>
 </html>
