@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sign up form</title>
+</head>
+<body>
+    <section class="bg-image">
+        <p class="logo">
+            <img src="./assets/odin-lined.png" alt="logo ODIN"> ODIN</p>
+        <p class="credits">Photo by <a href="https://unsplash.com/@haliewestphoto" class="link-credits" target="_blank">Halie West</a> on <a class="link-credits" target="_blank" href="https://unsplash.com/photos/green-leaf-plant-in-close-up-photography-25xggax4bSA">Unsplash</a></p>
+    </section>
+    <section class="bg-content">
+        <div class="intro">
+            <p>
+                This is not a real online service! You know you need something like 
+                this in your life to help your realize your deepest dreams.
+                Sign up now to get started.
+            </p>
+            <p>You <em>know</em> you want to.</p>
+        </div>
+        <form action="POST">
+            <section class="form-content">
+                <h1 class="form-title">Let's do this!</h1>
+                <div class="form-block">
+                    <span class="field">
+                        <label for="first_name">First name</label>
+                        <input type="text" id="first_name" name="in_first_name">
+                    </span>
+                    <span class="field">
+                        <label for="last_name">Last name</label>
+                        <input type="text" id="last_name" name="in_last_name">
+                    </span>
+                </div>
+                <div class="form-block">
+                    <span class="field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="in_email">
+                    </span>
+                    <span class="field">
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone" name="in_phone">
+                    </span>
+                </div>
+                <div class="form-block">
+                    <span class="field">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="in_password">
+                    </span>
+                    <span class="field">
+                        <label for="confirm_password">Confirm password</label>
+                        <input type="password" id="confirm_password" name="in_confirm_password">
+                    </span>
+                </div>
+            </section>
+            <button class="new-account" type='submit'>Create Account</button>
+        </form>
+        <div class="login">Already have an account? <a href="#">Log in</a></div>
+    </section>
+</body>
+</html>
