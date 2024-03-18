@@ -15,10 +15,11 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     display: flex;
-    height: 100vh;
     font-family: 'Code New Roman', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 .bg-image {
@@ -40,7 +41,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 15px 0;
     margin-top: 40%;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
 }
 
 .logo > img {
@@ -83,7 +84,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 40px;
+    padding: 10px 40px 10px 40px;
     margin: 10px 0;
     background-color: white;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
@@ -98,7 +99,7 @@ h1 {
     text-transform: uppercase;
     display: flex;
     justify-content: space-between;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .field {
@@ -108,7 +109,7 @@ h1 {
 }
 
 input {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     border-radius: 5px;
     border: 1px solid #7c8871;
     padding: 10px;
@@ -125,13 +126,14 @@ input:focus {
 
 button {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     background-color: #596D48;
     padding: 15px 25px;
     margin: 10px 0 25px 0;
     border-radius: 10px;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 .error-msg {
@@ -148,4 +150,19 @@ button {
     text-decoration: none;
     color: #596D48;
     font-size: bold;
+}
+
+@media only screen and (max-width: 600px) {
+
+    body{
+        flex-direction: column-reverse;
+    } 
+    
+    .form-block {
+        flex-direction: column;
+    }
+
+    .bg-image, .bg-content, .field {
+        width: 100%;
+    }
 }
