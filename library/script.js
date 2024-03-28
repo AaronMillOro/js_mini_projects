@@ -15,10 +15,18 @@ btnAdd.addEventListener('click', () => {
 
 btnConfirm.addEventListener('click', (e) => {
     e.preventDefault()
-    const book = new Book(addTitle.value, addAuthor.value, addPages.value)
-    myLibrary.push(book)
-    showLibrary()
-    dialog.close()
+    if (formValidation() === true){
+        const book = new Book(addTitle.value, addAuthor.value, addPages.value)
+        myLibrary.push(book)
+        showLibrary()
+        // clean form
+        addTitle.value = ''
+        addAuthor.value = ''
+        addPages.value = ''
+        dialog.close()
+    } else {
+        alert('Please verify the fields')
+    }
 })
 
 
@@ -64,4 +72,24 @@ function showLibrary(){
 
 function toggleStatus(status){
     return status === 'unread' ? 'read':'unread'
+}
+
+
+function formValidation(){
+    const alertTitle = document.getElementById('valid-title')
+    const alertAuthor = document.getElementById('valid-author')
+    const alertPages = document.getElementById('valid-pages')
+    let isValidForm = false
+
+    if ((addTitle.value !== '') && (addAuthor.value !== '') && (addPages.value > 0)) {
+        isValidForm = true
+        alertTitle.innerText = ''
+        alertAuthor.innerText = ''
+        alertPages.innerText = ''
+    } else {
+        alertTitle.innerText = addTitle.value === '' ? 'Invalid title, please fill in some information':''
+        alertAuthor.innerText = addAuthor.value === '' ? 'Invalid author, please fill in some information':''
+        alertPages.innerText = addPages.value <= 0 ? 'Invalid number of pages':''
+    }
+    return isValidForm
 }

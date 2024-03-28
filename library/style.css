@@ -55,6 +55,11 @@ form {
     gap: 10px;
 }
 
+small {
+    font-size: 0.7rem;
+    color: #dc2626;
+}
+
 #btn-add, #btn-add-confirm {
     background-color: #042f2e;
     border: #042f2e;
