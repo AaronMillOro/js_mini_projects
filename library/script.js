@@ -32,8 +32,8 @@ function Book(title, author, pages){
 
 function showLibrary(){
     books.innerHTML = ''
-    myLibrary.forEach(book => {
-        let bookContent = document.createElement('div')
+    myLibrary.forEach((book, idx) => {
+        const bookContent = document.createElement('div')
         bookContent.classList.add('book')
         bookContent.innerHTML = `
             <p class="title"><i class="fa-solid fa-book"></i>&nbsp; ${book.title}</p>
@@ -41,9 +41,27 @@ function showLibrary(){
             <p class="pages"> ${book.pages} pp</p>
             <p class="status ${book.status}">${book.status}</p>
             <section class="actions">
-                <button class="btn-read"><i class="fa-solid fa-eye"></i></button>
+                <button class="btn-${book.status}"><i class="fa-solid fa-eye"></i></button>
                 <button class="btn-delete"><i class="fa-solid   fa-trash"></i></button>
             </section>`
         books.appendChild(bookContent)
+        
+        // fetch action buttons
+        const btnDelete = bookContent.querySelector('.btn-delete')
+        btnDelete.addEventListener('click', () => {
+            myLibrary.splice(idx, 1)
+            showLibrary()
+        })
+        
+        const btnRead = bookContent.querySelector(`.btn-${book.status}`)
+        btnRead.addEventListener('click', () => {
+            book.status = toggleStatus(book.status)
+            showLibrary()
+        })
     })   
+}
+
+
+function toggleStatus(status){
+    return status === 'unread' ? 'read':'unread'
 }
