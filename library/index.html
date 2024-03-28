@@ -16,6 +16,21 @@
             <p>add book</p>
             <p><i class="fa-solid fa-plus"></i></p>
         </button>
+
+        <dialog>
+            <p>All fields are required</p>
+            <form method="dialog">
+                <label for="book-title">Title</label>
+                <input type="text" name="book-title" id="book-title" required autofocus>
+
+                <label for="book-autho">Author</label>
+                <input type="text" name="book-autho" id="book-autho" required>
+                <label for="book-pages">Pages</label>
+                <input type="number" min="1" name="book-pages" id="book-pages" required>
+                <button type="submit" id="btn-add-confirm">Confirm</button>
+            </form>
+        </dialog>
+        
         <section id="books">
             <div class="book">
                 <p class="title"><i class="fa-solid fa-book"></i>&nbsp; Harry Potter 1</p>
@@ -30,4 +45,5 @@
         </section>
     </main>
 </body>
+<script src="script.js"></script>
 </html>

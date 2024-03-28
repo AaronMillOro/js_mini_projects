@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0fdfa;
+    font-size: 1rem;
+    position: relative;
+}
+
+header {
+    padding: 30px;
+    border-bottom: 2px solid #0d9488;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    gap: 15px;
+    justify-content: space-between;
+    color: #18181b;
+    background-color: #e4e4e7;
+    border: 2px solid #52525b;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+dialog::backdrop {
+    background-color: #065f46;
+    opacity: 0.75;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-weight: bold;
+    padding: 10px 0;
+    gap: 10px;
+}
+
+#btn-add, #btn-add-confirm {
+    background-color: #042f2e;
+    border: #042f2e;
+    color: #ecfdf5;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    text-transform: uppercase;
+}
+
+#btn-add:active, #btn-add-confirm:active, .btn-delete:active, .btn-read:active {
+    transform: scale(0.95);
+}
+
+#btn-add:focus, #btn-add-confirm:focus, .btn-delete:focus, .btn-read:focus {
+    outline: 0;
+}
+
+#btn-add, #btn-add-confirm, .btn-delete, .btn-read {
+    border-radius: 20px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn-delete, .btn-read {
+    padding: 5px 15px;
+    color: #fafafa;
+}
+
+.btn-delete {
+    background-color: #dc2626;
+    border: 1px solid #dc2626;
+}
+
+.btn-read {
+    background-color: #0d9488;
+    border: 1px solid #0d9488;
+}
+
+#books {
+    margin: 20px;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #3f3f46;
+    background-color: #f3f4f6;
+    border: 2px solid #a1a1aa;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.status {
+    width: 100%;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.unread{
+    background-color: #f59e0b;
+    color: #3f3f46;
+}
+
+.read{
+    background-color: #0d9488;
+    color: #fff;
+}
+
+.actions {
+    display: flex;
+    justify-content: end;
+}
