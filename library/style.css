@@ -99,7 +99,10 @@ form {
 }
 
 #books {
+    display: flex;
+    flex-wrap: wrap;
     margin: 20px;
+    gap: 30px;
 }
 
 .book {
@@ -111,7 +114,7 @@ form {
     border: 2px solid #a1a1aa;
     border-radius: 10px;
     padding: 15px;
-    width: 200px;
+    width: 300px;
 }
 
 .title {

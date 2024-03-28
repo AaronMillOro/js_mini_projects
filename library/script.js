@@ -1,8 +1,52 @@
 const btnAdd = document.getElementById('btn-add')
 const btnConfirm = document.getElementById('btn-add-confirm')
+const addTitle = document.getElementById('book-title')
+const addAuthor = document.getElementById('book-author')
+const addPages = document.getElementById('book-pages')
 const dialog = document.querySelector('dialog')
+const books = document.getElementById('books') // to hook the books
+
+const myLibrary = []
+showLibrary()
 
 btnAdd.addEventListener('click', () => {
     dialog.showModal()
 })
 
+btnConfirm.addEventListener('click', (e) => {
+    e.preventDefault()
+    const book = new Book(
+        myLibrary.length, 
+        addTitle.value, 
+        addAuthor.value, 
+        addPages.value)
+    myLibrary.push(book)
+    showLibrary()
+    dialog.close()
+})
+
+function Book(id, title, author, pages){
+    this.id = id,
+    this.title = title,
+    this.author = author,
+    this.pages = pages,
+    this.status = 'unread'
+}
+
+function showLibrary(){
+    books.innerHTML = ''
+    myLibrary.forEach(book => {
+        let bookContent = document.createElement('div')
+        bookContent.classList.add('book')
+        bookContent.innerHTML = `
+            <p class="title"><i class="fa-solid fa-book"></i>&nbsp; ${book.title}</p>
+            <p class="author"><i class="fa-solid fa-user"></i>&nbsp; ${book.author} </p>
+            <p class="pages"> ${book.pages} pp</p>
+            <p class="status unread">${book.status}</p>
+            <section class="actions">
+                <button class="btn-read"><i class="fa-solid fa-eye"></i></button>
+                <button class="btn-delete"><i class="fa-solid   fa-trash"></i></button>
+            </section>`
+        books.appendChild(bookContent)
+    })
+}
