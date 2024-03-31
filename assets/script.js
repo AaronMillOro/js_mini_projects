@@ -27,6 +27,38 @@ const PROJECTS = [
         'url': BASE_URL + '/drawing_app/',
         'description': 'Application with a canvas space to draws continuous lines with different point sizes and a color picker available'
     }, 
+    {
+        'name_part1': 'Drinking', 
+        'name_part2': 'Water', 
+        'name_part3': 'App', 
+        'image': 'assets/img/drink_water.png',
+        'url': BASE_URL + '/drink_water/',
+        'description': 'Animation of counting glasses to fill a 2-L water container. The counter is reversible'
+    }, 
+    {
+        'name_part1': 'CRUD', 
+        'name_part2': 'library', 
+        'name_part3': 'from Odin Project', 
+        'image': 'assets/img/library.png',
+        'url': BASE_URL + '/library/',
+        'description': 'A custom library based on a list of books. The list that can be modified by adding or by deleting the book. A toggable button was added to mark books that were already read'
+    }, 
+    {
+        'name_part1': 'Signup', 
+        'name_part2': 'webpage', 
+        'name_part3': 'form', 
+        'image': 'assets/img/signup_form.png',
+        'url': BASE_URL + '/signup_form/',
+        'description': 'Page layout with a signup form from the ODIN project'
+    }, 
+    {
+        'name_part1': 'Analog / Digital', 
+        'name_part2': 'toggable', 
+        'name_part3': 'clock', 
+        'image': 'assets/img/toggable_clock.png',
+        'url': BASE_URL + '/toggable_clock/',
+        'description': 'Application with an analog/digital clock with toggable dark:light layout. The current date is also displayed'
+    }, 
 ]
 
 const menu = document.querySelector('.nav-menu > ul')
