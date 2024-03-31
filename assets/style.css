@@ -12,8 +12,10 @@
 :root {
     --dark-bg: #0a0a0a;
     --gray-bg: #262626;
-    --ligth-text: #f5f5f5;
+    --gray-bg-mid: #737373;
     --gray-text: #a3a3a3;
+    --ligth-text: #f5f5f5;
+    --intense-green: #1d3001;
     --electric-green: #a3e635;
     --electric-orange: #ff7d1f;
 }
@@ -29,7 +31,7 @@ body {
     font-size: 1.1rem;
     letter-spacing: 1px;
     font-weight: normal;
-    background: linear-gradient(45deg, var(--dark-bg), var(--gray-bg));
+    background: linear-gradient(10deg, var(--dark-bg) 0%, var(--gray-bg-mid) 3%, var(--gray-bg-mid) 15%, var(--dark-bg) 75%, var(--intense-green) 100%);
     color: var(--ligth-text);
 }
 
@@ -92,6 +94,7 @@ footer{
     justify-content: center;
     padding: 2rem 0;
     border-top: 7px solid #a3e635;
+    background-color: #0a0a0a;
 }
 
 main, footer {
@@ -99,6 +102,7 @@ main, footer {
 }
 
 #logo {
+    text-align: center;
     margin: 1.5rem;
 }
 
@@ -186,16 +190,24 @@ main, footer {
 .card {
     position: relative;
     box-shadow: 10px 10px var(--gray-bg);
-    transition: 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+    overflow: hidden;
 }
 
 .card:hover {
-    box-shadow: 0px 0x var(--gray-bg);
+    box-shadow: 0px 0px var(--gray-bg);
+}
+
+.card > img:hover{
+    opacity: 1;
+    transform: scale(1.3);
+    transition: all 600ms ease-in-out;
 }
 
 .card > img {
+    opacity: 0.5;
     width: 20vw;
-    object-fit: cover;
+    object-fit: content;
 }
 
 .card > h3 {
@@ -215,10 +227,72 @@ main, footer {
 
 #other-projects {
     width: 100%;
-    background: linear-gradient(45deg, var(--gray-text), var(--ligth-text));
-    color: var(--gray-bg);
+    background-color: var(--ligth-text);
+    color: var(--gray-bg) ;
 }
 
 #other-projects > h2 {
     padding: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        flex-direction: row;
+        align-items: stretch;
+        height: 15vh;
+        width: 100vw;
+        position: static;
+    }
+
+    .nav-menu > ul {
+        display: none;
+    }
+
+    .end-nav {
+        width: 2rem;
+        height: 100%;
+    }
+
+    main, footer {
+        padding-left: 0;
+    }
+
+    #main-project {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "title"
+            "photo"
+            "info"
+            "navigation";
+    }
+
+    .title-main {
+        margin: 2rem 0;
+    }
+
+    .img-main {
+        width: 70vw;
+        height: 70vw;
+    }
+
+    .description-main {
+        margin: 3rem 1rem 1rem 1rem;
+        display: flex;
+        grid-area: info;
+    }
+
+    .navigation {
+        height: 10vh;
+    }
+
+    .card > img {
+        width: 70vw;
+    }    
+
 }
