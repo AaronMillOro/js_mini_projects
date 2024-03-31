@@ -207,7 +207,8 @@ main, footer {
 .card > img {
     opacity: 0.5;
     width: 20vw;
-    object-fit: content;
+    height: 20vw;
+    object-fit: cover;
 }
 
 .card > h3 {
@@ -292,7 +293,9 @@ main, footer {
     }
 
     .card > img {
-        width: 70vw;
+        height: 45vh;
+        width: 45vh;
+        object-fit: cover;
     }    
 
 }
