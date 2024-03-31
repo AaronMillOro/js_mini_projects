@@ -29,14 +29,15 @@ body {
     font-size: 1.1rem;
     letter-spacing: 1px;
     font-weight: normal;
-    background-color: var(--dark-bg);
+    background: linear-gradient(45deg, var(--dark-bg), var(--gray-bg));
     color: var(--ligth-text);
 }
 
 h1 {
     font-size: 2.5rem;
     letter-spacing: 2px;
-    color: #a3a3a3;    
+    color: #a3a3a3; 
+    padding: 3rem 0;
 }
 
 h2{
@@ -47,9 +48,9 @@ h2{
 }
 
 h3 {
-    font-weight: normal;
-    font-size: 1.3rem;
-    color: var(--ligth-text)
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--gray-bg)
 }
 
 a {
@@ -89,8 +90,8 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 0;
-    border-top: 2px solid #a3e635;
+    padding: 2rem 0;
+    border-top: 7px solid #a3e635;
 }
 
 main, footer {
@@ -127,5 +128,97 @@ main, footer {
 
 .end-nav {
     background-color: var(--electric-green);
-    height: 5vh;
+    height: 5.1rem;
+}
+
+#main-project {
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "title photo"
+        "info info"
+        "navigation navigation";
+}
+
+.title-main {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem;
+    grid-area: title;
+}
+
+#main-project > div {
+    grid-area: photo;
+    display: flex;
+}
+
+.img-main {
+    width: 25vw;
+    height: 25vw;
+    object-fit: cover;
+    box-shadow: 10px 10px var(--electric-green);
+}
+
+.description-main {
+    letter-spacing: 2px;
+    margin: 3rem 6rem;
+    display: flex;
+    grid-area: info;
+}
+
+.navigation {
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    grid-area: navigation;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem;}
+
+.card {
+    position: relative;
+    box-shadow: 10px 10px var(--gray-bg);
+    transition: 400ms ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0px 0x var(--gray-bg);
+}
+
+.card > img {
+    width: 20vw;
+    object-fit: cover;
+}
+
+.card > h3 {
+    position: absolute;
+    bottom: 10px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: var(--ligth-text);
+    width: 100%;
+    opacity: .85;
+}
+
+.title-main, #main-project > div, .description-main, .cards{
+    justify-content: center;
+    align-items: center;
+}
+
+#other-projects {
+    width: 100%;
+    background: linear-gradient(45deg, var(--gray-text), var(--ligth-text));
+    color: var(--gray-bg);
+}
+
+#other-projects > h2 {
+    padding: 2rem;
 }
