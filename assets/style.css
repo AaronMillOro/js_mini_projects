@@ -60,6 +60,22 @@ a {
     color: var(--electric-orange)
 }
 
+button {
+    background: transparent;
+    border: 0;
+    color: var(--electric-green);
+    cursor: pointer;    
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    transform: scale(1.2);
+    transition: 80ms linear;
+}
+
 .title-part1 {
     color: var(--ligth-text);
 }

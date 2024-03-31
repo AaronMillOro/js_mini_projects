@@ -63,16 +63,17 @@ const PROJECTS = [
 
 const menu = document.querySelector('.nav-menu > ul')
 const cards = document.querySelector('.cards')
+const btnPrev = document.getElementById('prev')
+const btnNext = document.getElementById('next')
 
 PROJECTS.forEach(project => {
-    
     const fullTitle = project.name_part1 + ' ' + project.name_part2 + ' ' + project.name_part3
-    
     const menuItem = createMenuItem(project, fullTitle)
     menu.appendChild(menuItem)
     const card = createCard(project, fullTitle)
     cards.appendChild(card)
 })
+
 
 function createMenuItem(project, fullTitle){
     const projectLink = document.createElement('a')
