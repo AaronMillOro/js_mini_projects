@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'Montserrat';
-    src: url('/assets/fonts/Montserrat-Regular.otf');
+    src: url('./fonts/Montserrat-Regular.otf');
 }
 
 @font-face {
     font-family: 'Montserrat';
     font-weight: bold;
-    src: url('/assets/fonts/Montserrat-Bold.otf');
+    src: url('./fonts/Montserrat-Bold.otf');
 }
 
 :root {
@@ -189,7 +189,7 @@ main, footer {
     letter-spacing: 2px;
     margin: 0.5rem 2rem;
     padding: 0 3rem;
-    overflow: scroll;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
