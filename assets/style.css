@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'Montserrat';
-    src: url('/assets/fonts/Montserrat-Regular.otf');
+    src: url('./assets/fonts/Montserrat-Regular.otf');
 }
 
 @font-face {
     font-family: 'Montserrat';
     font-weight: bold;
-    src: url('/assets/fonts/Montserrat-Bold.otf');
+    src: url('./assets/fonts/Montserrat-Bold.otf');
 }
 
 :root {
