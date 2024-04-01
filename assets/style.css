@@ -43,7 +43,7 @@ h1 {
 }
 
 h2{
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -83,7 +83,7 @@ button:active {
 .title-part2 {
     color: var(--gray-text);
 }
-.title-part3 {
+.title-part3, .title-expressive {
     color: var(--electric-green);
 }
 
@@ -152,7 +152,7 @@ main, footer {
 }
 
 #main-project {
-    margin: 30px;
+    width: 85vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
@@ -174,23 +174,34 @@ main, footer {
 }
 
 .img-main {
-    width: 25vw;
-    height: 25vw;
+    width: 22vw;
+    height: 22vw;
     object-fit: cover;
     box-shadow: 10px 10px var(--electric-green);
+    transition: 200ms ease-in-out;
+}
+
+.img-main:hover {
+    box-shadow: 0px 5px 20px var(--electric-green);
 }
 
 .description-main {
     letter-spacing: 2px;
-    margin: 3rem 6rem;
+    margin: 2rem;
+    padding: 0 2rem;
+    overflow: scroll;
     display: flex;
+    align-items: center;
     grid-area: info;
+    width: 80%;
+    min-height: 20vh;
 }
 
 .navigation {
-    height: 20vh;
+    padding: 0 2rem;
+    height: 10vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
     align-items: center;
     grid-area: navigation;
 }
@@ -237,7 +248,7 @@ main, footer {
     opacity: .85;
 }
 
-.title-main, #main-project > div, .description-main, .cards{
+.title-main, #main-project > div, .cards{
     justify-content: center;
     align-items: center;
 }
@@ -252,7 +263,7 @@ main, footer {
     padding: 2rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 738px) {
 
     body {
         display: flex;
@@ -265,6 +276,10 @@ main, footer {
         height: 15vh;
         width: 100vw;
         position: static;
+    }
+
+    h2 {
+        font-size: 2.5rem;
     }
 
     .nav-menu > ul {

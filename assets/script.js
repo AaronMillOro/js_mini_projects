@@ -3,7 +3,8 @@ Script containing the logic to populate several projects with vanilla HTML, CSS 
 */
 const BASE_URL = 'http://127.0.0.1:5500'
 const PROJECTS = [
-    {
+    {   
+        'id': 0,
         'name_part1': 'Movie', 
         'name_part2': 'app', 
         'name_part3': 'Api', 
@@ -12,6 +13,7 @@ const PROJECTS = [
         'description': 'A JavaScript API that displays the lastest films from the TMDB API. For each film, the following values are displayed: the title, the overview and the score'
     }, 
     {
+        'id': 1,
         'name_part1': 'Dad\'s', 
         'name_part2': 'jokes', 
         'name_part3': 'Api', 
@@ -20,6 +22,7 @@ const PROJECTS = [
         'description': 'Javascript API that shows random (silly) jokes from the site icanhazdadjoke'
     }, 
     {
+        'id': 2,
         'name_part1': 'JS', 
         'name_part2': 'drawing', 
         'name_part3': 'App', 
@@ -28,6 +31,7 @@ const PROJECTS = [
         'description': 'Application with a canvas space to draws continuous lines with different point sizes and a color picker available'
     }, 
     {
+        'id': 3,
         'name_part1': 'Drinking', 
         'name_part2': 'Water', 
         'name_part3': 'App', 
@@ -36,14 +40,16 @@ const PROJECTS = [
         'description': 'Animation of counting glasses to fill a 2-L water container. The counter is reversible'
     }, 
     {
+        'id': 4,
         'name_part1': 'CRUD', 
-        'name_part2': 'library', 
-        'name_part3': 'from Odin Project', 
+        'name_part2': 'JavaScript', 
+        'name_part3': 'library', 
         'image': 'assets/img/library.png',
         'url': BASE_URL + '/library/',
-        'description': 'A custom library based on a list of books. The list that can be modified by adding or by deleting the book. A toggable button was added to mark books that were already read'
+        'description': 'A custom library based on a list of books. The list that can be modified by adding or by deleting the book'
     }, 
     {
+        'id': 5,
         'name_part1': 'Signup', 
         'name_part2': 'webpage', 
         'name_part3': 'form', 
@@ -52,7 +58,8 @@ const PROJECTS = [
         'description': 'Page layout with a signup form from the ODIN project'
     }, 
     {
-        'name_part1': 'Analog / Digital', 
+        'id': 6, 
+        'name_part1': 'Light/dark', 
         'name_part2': 'toggable', 
         'name_part3': 'clock', 
         'image': 'assets/img/toggable_clock.png',
@@ -65,6 +72,47 @@ const menu = document.querySelector('.nav-menu > ul')
 const cards = document.querySelector('.cards')
 const btnPrev = document.getElementById('prev')
 const btnNext = document.getElementById('next')
+let currentProj = PROJECTS[0]
+
+populateMainProj(currentProj)
+
+btnNext.addEventListener('click', () => {
+    if (currentProj.id < PROJECTS.length-1 ){
+        nextProj = PROJECTS[currentProj.id + 1]
+        populateMainProj(nextProj)
+        currentProj = nextProj
+    } else {
+        populateMainProj(PROJECTS[0])
+        currentProj = PROJECTS[0]
+    }
+})
+
+btnPrev.addEventListener('click', () => {
+    if (currentProj.id === 0){
+        currentProj = PROJECTS[PROJECTS.length - 1]
+        populateMainProj(currentProj)
+    } else {
+        prevProj = PROJECTS[currentProj.id - 1]
+        populateMainProj(prevProj)
+        currentProj = prevProj
+    }
+})
+
+
+function populateMainProj(project){
+    const titleP1 = document.querySelector('.title-part1')
+    const titleP2 = document.querySelector('.title-part2')
+    const titleP3 = document.querySelector('.title-part3')
+    const img = document.querySelector('.img-main')
+    const link = document.querySelector('#main-project > div > a')
+    const description = document.querySelector('.description-main')
+    titleP1.innerText = project.name_part1
+    titleP2.innerText = project.name_part2
+    titleP3.innerText = project.name_part3
+    link.setAttribute('href', project.url)
+    img.setAttribute('src', project.image)
+    description.innerText = project.description
+}
 
 PROJECTS.forEach(project => {
     const fullTitle = project.name_part1 + ' ' + project.name_part2 + ' ' + project.name_part3
