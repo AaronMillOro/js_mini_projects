@@ -1,7 +1,7 @@
 /* 
 Script containing the logic to populate several projects with vanilla HTML, CSS and JavaScript
 */
-const BASE_URL = 'https://aaronmilloro.github.io'
+const BASE_URL = 'https://aaronmilloro.github.io/js_mini_projects'
 const PROJECTS = [
     {   
         'id': 0,
