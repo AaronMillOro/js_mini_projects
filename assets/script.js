@@ -66,6 +66,24 @@ const PROJECTS = [
         'url': BASE_URL + '/toggable_clock/',
         'description': 'Application with an analog/digital clock with toggable dark:light layout. The current date is also displayed'
     }, 
+    {
+        'id': 7, 
+        'name_part1': 'Etch', 
+        'name_part2': 'a', 
+        'name_part3': 'sketch', 
+        'image': 'assets/img/etch_a_sketch.png',
+        'url': 'https://aaronmilloro.github.io/etch_a_sketch/',
+        'description': 'A browser version of something between a sketchpad and an Etch-A-Sketch. Each cell change of color (random) when hovering over them, leaving a (pixelated) trail through the grid like a pen would. There is a progressive darkening effect where each interaction adds 10% more color to the square. The objective is to achieve a completely color square only after ten interactions.'
+    }, 
+    {
+        'id': 8, 
+        'name_part1': 'JS', 
+        'name_part2': 'basic', 
+        'name_part3': 'calculator', 
+        'image': 'assets/img/calculator.png',
+        'url': 'https://aaronmilloro.github.io/odin_calculator/',
+        'description': 'A simple calculator that contains functions for all of the basic math operators : addition, subtraction, multiply and divide'
+    }, 
 ]
 
 const menu = document.querySelector('.nav-menu > ul')

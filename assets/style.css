@@ -134,6 +134,7 @@ main, footer {
 .nav-menu {
     background-color: var(--dark-bg);
     flex-grow: 1;
+    overflow-y: scroll;
 }
 
 .nav-menu > ul  { 
