@@ -7,3 +7,4 @@
 5. [Sign up form](https://github.com/AaronMillOro/js_mini_projects/tree/main/signup_form): signup form from the ODIN project
 6. [Movie app API](https://github.com/AaronMillOro/js_mini_projects/tree/main/movie_app_api): API fetching the review, score and image of th latest films from the [TMDB API](https://api.themoviedb.org)
 7. [Library](https://github.com/AaronMillOro/js_mini_projects/tree/main/library): List of books that can be modified by adding or by deleting their elements
+8. [Tic tac toe](https://github.com/AaronMillOro/js_mini_projects/tree/main/tic_tac_toe): The game of tic tac toe

@@ -84,6 +84,15 @@ const PROJECTS = [
         'url': 'https://aaronmilloro.github.io/odin_calculator/',
         'description': 'A simple calculator that contains functions for all of the basic math operators : addition, subtraction, multiply and divide'
     }, 
+    {
+        'id': 9, 
+        'name_part1': 'Tic', 
+        'name_part2': 'tac', 
+        'name_part3': 'toe', 
+        'image': 'assets/img/tic_tact_toe.png',
+        'url': 'https://aaronmilloro.github.io/tic_tac_toe/',
+        'description': 'Implementation of the tic tac toe game in JS vanilla logic. It is a game  for two players who take turns marking the spaces in a three-by-three grid with an id (usually X or O, but emojis are allowed). The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.'
+    }, 
 ]
 
 const menu = document.querySelector('.nav-menu > ul')

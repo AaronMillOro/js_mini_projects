@@ -1,0 +1,178 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat-Regular.otf');
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat';
+    font-size: 1.2rem;
+    font-weight: normal;
+    background-image: radial-gradient(circle, #eabe6c, #df9158, #cc6651, #af3d51, #891652, #240A34);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #240A34;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+footer > button {
+    opacity: 0;
+}
+
+h1 {
+    font-size: 2.7rem;
+    letter-spacing: 2px;
+    padding: 0.5rem 0;
+}
+
+a{  
+    font-weight: bold;
+    color: #64ee97;
+    text-decoration: none;
+}
+
+#actions, #players {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+}
+
+ul {
+    list-style: none;
+    padding-bottom: 1rem;
+}
+
+li {
+    display: flex;
+    font-size: 0.9rem;
+    justify-content: center;
+    padding: 2px 5px;
+}
+
+li > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+input {
+    box-shadow: 1px 5px 10px #891652;
+    border: #240A34;
+    padding: 4px;
+    background-color: #240A34;
+    color: #eabe6c;
+    text-align: center;
+}
+
+input:focus{
+    outline: none;
+    border: 2px solid #64ee97;
+}
+
+#msg {
+    width: 250px;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background-color: rgba(36, 10, 52, 0.7);
+    border: 2px solid #240A34;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    color: #df9158;
+}
+
+
+button {
+    background-color: #e35670;
+    border: 2px solid #240A34;
+    border-radius: 15px;
+    color: #240A34;
+    cursor: pointer;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 200px;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.85);
+    transition: 50ms linear;
+}
+
+.disabled{
+    background-color: #707070;
+    color: rgb(216, 216, 216);
+    cursor: not-allowed;
+}
+
+button:active.disabled {
+    transform: scale(1);
+}
+
+#board {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell {
+    background-color: rgba(36, 10, 52, 0.3);
+    margin: 3px;
+    box-shadow: 1px 1px 5px #891652;
+    border: 2px solid #240A34;
+    border-radius: 10px;
+    width: clamp(80px, 13vh, 300px);
+    height: clamp(80px, 13vh, 300px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.cell.available:hover {
+    box-shadow: 0px 0px 5px #64ee97;
+    background-color: rgba(100, 238, 151, 0.1);
+    cursor: pointer;
+}
+
+.player1 {
+    background-color: #eabe6c;
+    color: #240A34;
+    transition: background-color 0.5s ease;
+}
+
+.player2 {
+    background-color: #240A34;
+    color: #eabe6c;
+    transition: background-color 0.5s ease;
+}
