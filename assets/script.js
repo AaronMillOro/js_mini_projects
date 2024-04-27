@@ -90,7 +90,7 @@ const PROJECTS = [
         'name_part2': 'tac', 
         'name_part3': 'toe', 
         'image': 'assets/img/tic_tact_toe.png',
-        'url': 'https://aaronmilloro.github.io/tic_tac_toe/',
+        'url': BASE_URL + '/tic_tac_toe/',
         'description': 'Implementation of the tic tac toe game in JS vanilla logic. It is a game  for two players who take turns marking the spaces in a three-by-three grid with an id (usually X or O, but emojis are allowed). The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.'
     }, 
 ]
