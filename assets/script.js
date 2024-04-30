@@ -10,7 +10,7 @@ const PROJECTS = [
         'name_part3': 'Api', 
         'image': 'assets/img/movie_app_api.png',
         'url': BASE_URL + '/movie_app_api/',
-        'description': 'A JavaScript API that displays the lastest films from the TMDB API. For each film, the following values are displayed: the title, the overview and the score'
+        'description': 'A JavaScript API that displays the lastest films from the TMDB API. A stylized card is displayed for each film, containing the image film, title, overview and audience score'
     }, 
     {
         'id': 1,
@@ -28,7 +28,7 @@ const PROJECTS = [
         'name_part3': 'App', 
         'image': 'assets/img/drawing_app.png',
         'url': BASE_URL + '/drawing_app/',
-        'description': 'Application with a canvas space to draws continuous lines with different point sizes and a color picker available'
+        'description': 'Application with a canvas space to draw continuous lines with different point sizes and a color picker is also available'
     }, 
     {
         'id': 3,
@@ -37,7 +37,7 @@ const PROJECTS = [
         'name_part3': 'App', 
         'image': 'assets/img/drink_water.png',
         'url': BASE_URL + '/drink_water/',
-        'description': 'Animation of counting glasses to fill a 2-L water container. The counter is reversible'
+        'description': 'Animation of counting glasses to fill a 2-L water container'
     }, 
     {
         'id': 4,
@@ -46,7 +46,7 @@ const PROJECTS = [
         'name_part3': 'library', 
         'image': 'assets/img/library.png',
         'url': BASE_URL + '/library/',
-        'description': 'A custom library based on a list of books. The list that can be modified by adding or by deleting the book'
+        'description': 'A custom library based on a list of books. The list that can be modified by adding or by deleting a given book'
     }, 
     {
         'id': 5,
@@ -64,7 +64,7 @@ const PROJECTS = [
         'name_part3': 'clock', 
         'image': 'assets/img/toggable_clock.png',
         'url': BASE_URL + '/toggable_clock/',
-        'description': 'Application with an analog/digital clock with toggable dark:light layout. The current date is also displayed'
+        'description': 'Application with a clock with toggable dark:light layout. The current date is also displayed'
     }, 
     {
         'id': 7, 
@@ -82,7 +82,7 @@ const PROJECTS = [
         'name_part3': 'calculator', 
         'image': 'assets/img/calculator.png',
         'url': 'https://aaronmilloro.github.io/odin_calculator/',
-        'description': 'A simple calculator that contains functions for all of the basic math operators : addition, subtraction, multiply and divide'
+        'description': 'A calculator that contains the functions for all of the basic math operators : addition, subtraction, multiply and divide'
     }, 
     {
         'id': 9, 
@@ -91,7 +91,7 @@ const PROJECTS = [
         'name_part3': 'toe', 
         'image': 'assets/img/tic_tact_toe.png',
         'url': BASE_URL + '/tic_tac_toe/',
-        'description': 'Implementation of the tic tac toe game in JS vanilla logic. It is a game  for two players who take turns marking the spaces in a three-by-three grid with an id (usually X or O, but emojis are allowed). The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.'
+        'description': 'Implementation of the tic tac toe game in JS vanilla logic. It is a game  for two players who take turns marking the spaces in a three-by-three grid with an id (usually X or O, but emojis are also allowed). The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner'
     }, 
 ]
 
