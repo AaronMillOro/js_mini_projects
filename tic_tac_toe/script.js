@@ -12,6 +12,7 @@ function mainGame(){
     let player2 
     let playerTurn
     let endGame = false
+    let winner = false
     // initial form
     const playersInfoUI = document.getElementById('players')
     const player1Name = document.getElementById('player1_name')
@@ -111,7 +112,12 @@ function mainGame(){
                     if (!endGame) {
                         gameMsg.innerText = `Now the turn for ${playerTurn.playerName}`
                     } else {
-                        gameMsg.innerText = `Game over`
+                        if (winner) {
+                            playerTurn = switchPlayer()
+                            gameMsg.innerText = `The winner is ${playerTurn.playerName}`
+                        } else {
+                            gameMsg.innerText = `Game over`
+                        }
                         showResetBtn()
                     }
                     return endGame
@@ -153,7 +159,10 @@ function mainGame(){
         const scenarios = [...board, firstCol, secondCol, thirdCol, ...diagonals]
         scenarios.forEach(scenario => {
             let equalElems = scenario.every(elem => (elem === scenario[0] && elem !== null))
-            if (equalElems) { anyEndCase = true }
+            if (equalElems) { 
+                anyEndCase = true 
+                winner = true
+            }
             let freeSpace = scenario.some(elem => (elem === null))
             if (!freeSpace) { 
                 emptyScenario++
