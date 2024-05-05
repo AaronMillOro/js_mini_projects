@@ -1,8 +1,17 @@
 mainGame()
 
 function mainGame(){
-    // game properties
+    // visible game properties
     const gameMsg = document.getElementById('msg')
+    const startBtn = document.getElementById('startBtn')
+    const resetBtn = document.getElementById('resetBtn')
+    const boardUI = document.getElementById('board') // visible board
+    let boardCells = document.querySelectorAll('.cell')
+    // logical proprerties
+    let player1
+    let player2 
+    let playerTurn
+    let endGame = false
     // initial form
     const playersInfoUI = document.getElementById('players')
     const player1Name = document.getElementById('player1_name')
@@ -11,14 +20,7 @@ function mainGame(){
     const player2Id = document.getElementById('player2_id')
     const gameInputs = [player1Name, player1Id, player2Name, player2Id]
     let itemsOk = [] // to validate names and id's
-    const startBtn = document.getElementById('startBtn')
-    const resetBtn = document.getElementById('resetBtn')
-    const boardUI = document.getElementById('board') // visible board
-    let boardCells = document.querySelectorAll('.cell')
-    let player1
-    let player2 
-    let playerTurn
-    let endGame = false
+    
     
     resetInputs() 
     startBtn.setAttribute('disabled', '')
@@ -47,10 +49,11 @@ function mainGame(){
         playersInfoUI.style.alignItems = 'stretch'
         gameMsg.innerText = 'Game starts' 
         // awaits for game turns
-        gameFlow(inPlayer1Name, inPlayer1Id, inPlayer2Name, inPlayer2Id)
+        setGame(inPlayer1Name, inPlayer1Id, inPlayer2Name, inPlayer2Id)
     })
 
-    function gameFlow(inPlayer1Name, inPlayer1Id, inPlayer2Name, inPlayer2Id) {
+
+    function setGame(inPlayer1Name, inPlayer1Id, inPlayer2Name, inPlayer2Id) {
         player1 = createPlayer(
             inPlayer1Name[Object.keys(inPlayer1Name)[0]].inputValue, 
             inPlayer1Id[Object.keys(inPlayer1Id)[0]].inputValue
@@ -95,33 +98,28 @@ function mainGame(){
             playerTurn = switchPlayer()
         }
         gameMsg.innerText = `Turn of ${playerTurn.playerName}`
-
+        // each game action 
         boardCells.forEach(cell => {
-            // each game action 
             cell.addEventListener('click', () => {
-                if (checkAvailablePlace(cell.dataset.line, cell.dataset.col, board)) {
-                    if(checkEndGame(board)) {
-                        gameMsg.innerText = 'No more place to play. Game Over'
+                if (cell.classList.contains('available') && checkAvailablePlace(cell.dataset.line, cell.dataset.col, board)){
+                    board = updateBoard(cell.dataset.line, cell.dataset.col, playerTurn.playerId, board)
+                    // console.table(board)
+                    cell.innerText = playerTurn.playerId
+                    cell.classList.remove('available')
+                    playerTurn = switchPlayer()
+                    endGame = checkEndGame(board)
+                    if (!endGame) {
+                        gameMsg.innerText = `Now the turn for ${playerTurn.playerName}`
                     } else {
-                        board = updateBoard(cell.dataset.line, cell.dataset.col, playerTurn.playerId, board)
-                        //console.table(board)
-                        cell.innerText = playerTurn.playerId
-                        cell.classList.remove('available')
-                        playerTurn = switchPlayer()
-                        endGame = checkEndGame(board)
-                        if(!endGame) {
-                            gameMsg.innerText = `Now the turn for ${playerTurn.playerName}`
-                        }
-                        return endGame
+                        gameMsg.innerText = `Game over`
+                        showResetBtn()
                     }
-                } else if(checkEndGame(board))  {
-                    gameMsg.innerText = 'No more places'
-                }else {
-                    gameMsg.innerText = 'Already taken, try again'
+                    return endGame
                 }
             })
         })
     }
+
 
     function updateBoard(rowNumber, columnNumber, playerId, board){
         // update of board when a player sets an identifier on a coordinate (row, column) 
@@ -136,6 +134,7 @@ function mainGame(){
 
 
     function checkEndGame(board) {
+        // create game scenarios        
         let diagonals = [
             [board[0][0], board[1][1], board[2][2]], 
             [board[0][2], board[1][1], board[2][0]]
@@ -143,51 +142,46 @@ function mainGame(){
         let firstCol = []
         let secondCol = []
         let thirdCol = []
-    
-        // create game scenarios        
         board.forEach(line => {
             firstCol.push(line[0])
             secondCol.push(line[1])
             thirdCol.push(line[2])
-            // check for empty cells    
-            let availableCells = line.filter(el => el === null)
-            endGame = availableCells.length === 0 ? true : false
         })
-        
-        if (endGame === true){
-            gameMsg.innerText = 'Game Over =)'
-            return true
-        } else {
-            // check for a win case in scenarios
-            let anyWinCase = false
-            const scenarios = [...board, firstCol, secondCol, thirdCol, ...diagonals]
-            scenarios.forEach((scenario, idx) => {
-                let equalElems = scenario.every(elem => (elem === scenario[0] && elem !== null))
-                if (equalElems) { 
-                    /// console.log('scenario #', idx + 1, scenario) 
-                    anyWinCase = true
-                    boardCells.forEach(cell => {
-                        cell.classList.remove('available')
-                    })
-                    resetBtn.removeAttribute('hidden')
-                    resetBtn.removeAttribute('disabled')
-                    resetBtn.classList.remove('disabled')
-                    resetBtn.style.cursor = 'pointer'
-                    resetBtn.style.opacity = 1
-                    resetBtn.addEventListener('click', () => {
-                        window.location.reload()
-                    })
-                    gameMsg.innerText = 'Game Over =)'
-                }
-            })
-            return anyWinCase
-        }
+        // check for a win case or when there're no available elements in scenarios
+        let anyEndCase = false
+        let emptyScenario = 0
+        const scenarios = [...board, firstCol, secondCol, thirdCol, ...diagonals]
+        scenarios.forEach(scenario => {
+            let equalElems = scenario.every(elem => (elem === scenario[0] && elem !== null))
+            if (equalElems) { anyEndCase = true }
+            let freeSpace = scenario.some(elem => (elem === null))
+            if (!freeSpace) { 
+                emptyScenario++
+                if (emptyScenario === 8) { anyEndCase = true }
+            }
+        })
+        return anyEndCase
     }
 
 
     function resetInputs() {
         gameInputs.forEach(elem => {
             elem.value = ''
+        })
+    }
+
+
+    function showResetBtn(){
+        boardCells.forEach(cell => {
+            cell.classList.remove('available')
+        })
+        resetBtn.removeAttribute('hidden')
+        resetBtn.removeAttribute('disabled')
+        resetBtn.classList.remove('disabled')
+        resetBtn.style.cursor = 'pointer'
+        resetBtn.style.opacity = 1
+        resetBtn.addEventListener('click', () => {
+            window.location.reload()
         })
     }
 
@@ -218,7 +212,7 @@ function mainGame(){
                     itemsOk.forEach(item => {
                         if (item.index === elem.dataset.id) {
                             itemsOk.splice(itemsOk.findIndex(({index}) => index === elem.dataset.id), 1)
-                            gameMsg.innerText = 'Removed value, complete all fields to starts'
+                            gameMsg.innerText = 'Removed value, complete all fields to start'
                             if (itemsOk.length < 4) {
                                 startBtn.classList.add('disabled')
                                 startBtn.setAttribute('disabled', '')
