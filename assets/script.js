@@ -93,6 +93,15 @@ const PROJECTS = [
         'url': BASE_URL + '/tic_tac_toe/',
         'description': 'Implementation of the tic tac toe game in JS vanilla logic. It is a game  for two players who take turns marking the spaces in a three-by-three grid with an id (usually X or O, but emojis are also allowed). The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner'
     }, 
+    {
+        'id': 10, 
+        'name_part1': 'Burgers', 
+        'name_part2': 'N', 
+        'name_part3': 'Salads', 
+        'image': 'assets/img/burger_n_salads.png',
+        'url': 'https://aaronmilloro.github.io/burger_n_salad/',
+        'description': 'A restaurant website generated programatically using vanilla JS logic. The assets are packaged by using webpack. The sole dependency is leaflet to show the restaurant localisation.'
+    }, 
 ]
 
 const menu = document.querySelector('.nav-menu > ul')
